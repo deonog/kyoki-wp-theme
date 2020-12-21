@@ -1,0 +1,698 @@
+/*
+Theme Name: Kyoki Theme
+Theme URI: https://kyokistudio.de
+Author: Kyoki Studio
+Description: Photography Theme
+Version: 1.1
+Requires at least: 5.0
+Tested up to: 5.4
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: twentytwenty
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/*----------------------------------------*/
+/*  VARIABLES SCSS
+/*----------------------------------------*/
+@font-face {
+  font-family: "Garamond Bold";
+  src: url("inc/fonts/coromorant-garamond/CormorantGaramond-Bold.ttf") format("truetype");
+  /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: "Garamond Regular";
+  src: url("inc/fonts/coromorant-garamond/CormorantGaramond-Regular.ttf") format("truetype");
+  /* Safari, Android, iOS */
+}
+
+/*----------------------------------------*/
+/*  GLOBAL STYLES
+/*----------------------------------------*/
+:root {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+p {
+  font-family: "Garamond Regular", sans-serif;
+  font-size: 1em;
+}
+
+a {
+  font-family: "Garamond Regular", sans-serif;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Garamond Bold", sans-serif;
+  letter-spacing: 0.9px;
+}
+
+/*----------------------------------------*/
+/*  GLOBAL CLASSES
+/*----------------------------------------*/
+.padding {
+  padding: 4rem 0;
+}
+
+.padding-top {
+  padding: 2rem 0;
+}
+
+/*----------------------------------------*/
+/*  HEADER
+/*----------------------------------------*/
+header {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+header .container {
+  position: absolute;
+  z-index: 4;
+  max-width: 100%;
+}
+
+header .container img {
+  height: 15rem;
+}
+
+@media screen and (min-width: 992px) {
+  header .container img {
+    height: 20rem;
+  }
+}
+
+.home .header {
+  overflow-y: hidden !important;
+  max-height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.home .header .container {
+  position: absolute;
+  z-index: 4;
+}
+
+.about header {
+  height: 120vh;
+}
+
+@media screen and (min-width: 374px) {
+  .about header {
+    height: 100vh;
+  }
+}
+
+.about header::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 120vh;
+  top: 0;
+  left: 0;
+  background: #000000;
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 374px) {
+  .about header::after {
+    height: 100vh;
+  }
+}
+
+.about p {
+  color: #ffffff;
+  font-size: 1em;
+}
+
+.about p:first-child {
+  font-family: "Garamond Bold", sans-serif;
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 768px) {
+  .about p:first-child {
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about p {
+    font-size: 1.5em;
+  }
+}
+
+.contact header {
+  height: 140vh;
+}
+
+.contact header::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 140vh;
+  top: 0;
+  left: 0;
+  background: #000000;
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 420px) {
+  .contact header::after {
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .contact header {
+    height: 100vh;
+  }
+}
+
+.contact header .container {
+  position: relative;
+}
+
+.contact header .container a {
+  color: #333333;
+}
+
+.contact header .container a i {
+  font-size: 32px;
+}
+
+.contact header .container a p {
+  color: #333333;
+}
+
+.contact header .container .row .form-col {
+  padding: 2rem 2rem 0 2rem;
+}
+
+.contact header .container .row .col-sm-12 {
+  background: #fff;
+  text-align: center;
+}
+
+.contact header .container .row .col-sm-12:last-child {
+  padding-bottom: 2rem;
+}
+
+.contact header .container .row .col-sm-12 label,
+.contact header .container .row .col-sm-12 span,
+.contact header .container .row .col-sm-12 input[type="email"],
+.contact header .container .row .col-sm-12 input[type="text"],
+.contact header .container .row .col-sm-12 textarea {
+  width: 100%;
+}
+
+.contact header .container .row .col-sm-12 textarea {
+  height: 15vh;
+}
+
+.contact header .container .row .col-sm-12 label {
+  color: #333333;
+  letter-spacing: 0.9px;
+}
+
+.contact header .container .row .col-sm-12 p {
+  font-size: 1.3em;
+  margin-bottom: 0.5rem;
+}
+
+.contact header .container .row .col-sm-12 input[type="email"],
+.contact header .container .row .col-sm-12 input[type="text"],
+.contact header .container .row .col-sm-12 textarea {
+  border: 1px solid #333333;
+  border-style: none none solid none;
+  text-indent: 8px;
+  letter-spacing: 0.9px;
+}
+
+.contact header .container .row .col-sm-12 input[type="submit"] {
+  background: #333333;
+  color: #ffffff;
+  width: 144px;
+  padding: 4px 0;
+  font-size: 1em;
+  border: 1px solid #333333;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.contact header .container .row .col-sm-12 input[type="submit"]:hover {
+  background: transparent;
+  color: #333333;
+  border: 1px solid #333333;
+}
+
+.page section {
+  height: 100vh;
+}
+
+.wp-block-gallery {
+  display: none !important;
+}
+
+.logo {
+  height: 5rem !important;
+}
+
+@media screen and (min-width: 992px) {
+  .logo {
+    height: 5rem !important;
+  }
+}
+
+/*----------------------------------------*/
+/*  HEADER CAROUSEL
+/*----------------------------------------*/
+.carousel {
+  height: 70vh;
+  width: 100%;
+  position: static;
+}
+
+.carousel .carousel-inner {
+  height: 100%;
+  overflow: visible;
+}
+
+.carousel .carousel-inner .carousel-item {
+  height: 100%;
+}
+
+.carousel .carousel-inner .carousel-item img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.carousel i {
+  color: #333333;
+  font-size: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel i {
+    color: #333333;
+  }
+}
+
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+  z-index: 5;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel .carousel-control-prev,
+  .carousel .carousel-control-next {
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .carousel .carousel-control-prev {
+    left: -1rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .carousel .carousel-control-prev {
+    left: -3rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .carousel .carousel-control-prev {
+    left: -5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .carousel .carousel-control-next {
+    right: -1rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .carousel .carousel-control-next {
+    right: -3rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .carousel .carousel-control-next {
+    right: -5rem;
+  }
+}
+
+.home .header-logo {
+  cursor: pointer;
+}
+
+.home .carousel {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.home .carousel img {
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+.home .carousel::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #000000;
+  opacity: 0.3;
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+  opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/*----------------------------------------*/
+/* NAVBAR
+/*----------------------------------------*/
+.nav nav {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 9;
+  overflow: hidden;
+}
+
+.nav nav img {
+  height: 5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .nav nav img {
+    height: 8rem;
+  }
+}
+
+.nav nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.nav nav ul li {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  opacity: 0;
+}
+
+.nav nav ul li a {
+  display: block;
+  font-size: 1.5em;
+  padding: 10px 0;
+  text-align: center;
+  color: #333333;
+  text-decoration: none;
+}
+
+.nav nav ul li a:hover {
+  color: #e70505;
+}
+
+@media screen and (min-width: 768px) {
+  .nav nav ul li a {
+    font-size: 2em;
+  }
+}
+
+.nav nav .copyright {
+  position: absolute;
+  bottom: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+  .nav nav .copyright {
+    bottom: 1.5rem;
+  }
+}
+
+.nav nav .copyright p {
+  font-size: 14px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 576px) {
+  .nav nav .copyright p {
+    width: 100%;
+  }
+}
+
+#header-logo {
+  cursor: pointer;
+}
+
+.toggle-btn {
+  display: none;
+  padding: 12px;
+  position: fixed;
+  z-index: 10;
+  left: 1.5rem;
+  top: 1.5rem;
+  cursor: pointer;
+  z-index: 11;
+}
+
+@media screen and (min-width: 768px) {
+  .toggle-btn {
+    left: 3rem;
+    top: 3rem;
+  }
+}
+
+.toggle-btn .bar {
+  width: 34px;
+  height: 3px;
+  margin: 8px auto;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-btn .bar:nth-child(2) {
+  width: 24px;
+}
+
+.nav-closed {
+  visibility: visible;
+}
+
+#toggle:checked ~ nav {
+  opacity: 1;
+  visibility: visible;
+}
+
+#toggle:checked ~ nav img {
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1;
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+}
+
+#toggle:checked ~ nav ul li {
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1;
+}
+
+#toggle:checked ~ nav ul li:nth-child(1) {
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(2) {
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.2s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.2s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(3) {
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.3s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.3s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(4) {
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.4s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.4s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(5) {
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.5s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.5s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(6) {
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.6s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.6s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(7) {
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.7s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.7s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(8) {
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.8s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.8s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(9) {
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.9s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.9s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(10) {
+  -webkit-transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 1s;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 1s;
+}
+
+#toggle:checked + label.toggle-btn .bar {
+  background-color: #333333;
+}
+
+#toggle:checked + label.toggle-btn .bar:nth-child(2) {
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+  opacity: 0;
+}
+
+#toggle:checked + label.toggle-btn .bar:nth-child(1) {
+  -webkit-transform: translateY(10px) rotate(45deg);
+          transform: translateY(10px) rotate(45deg);
+}
+
+#toggle:checked + label.toggle-btn .bar:nth-child(3) {
+  -webkit-transform: translateY(-12px) rotate(-45deg);
+          transform: translateY(-12px) rotate(-45deg);
+}
+
+.gallery .grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-column-gap: 3rem;
+  grid-row-gap: 2.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery .grid {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .gallery .grid {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2.5rem;
+    grid-row-gap: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .gallery .grid {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+  }
+}
+
+.gallery .grid .grid-item a {
+  color: #464646;
+  text-decoration: none;
+}
+
+.gallery .grid .grid-item img {
+  width: 100%;
+  height: 35vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery .grid .grid-item img {
+    height: 14rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

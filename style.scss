@@ -1,0 +1,572 @@
+/*
+Theme Name: Kyoki Theme
+Theme URI: https://kyokistudio.de
+Author: Kyoki Studio
+Description: Photography Theme
+Version: 1.1
+Requires at least: 5.0
+Tested up to: 5.4
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: twentytwenty
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*----------------------------------------*/
+/*  VARIABLES SCSS
+/*----------------------------------------*/
+
+// Bootstrap Breakpoints
+$bootstrap-sm: 576px;
+$bootstrap-md: 768px;
+$bootstrap-lg: 992px;
+$bootstrap-xl: 1200px;
+
+// Colors
+
+$primaryColor: #e70505;
+$white: #ffffff;
+$black: #333333;
+$grey: #464646;
+
+// Spacing
+$letterSpacing: 0.9px;
+
+$transition: all 0.3s ease-in;
+$transitionFast: all 0.1s ease-in;
+
+// Fonts
+
+// Cormorant Garamond Bold
+@font-face {
+  font-family: "Garamond Bold";
+  src: url("inc/fonts/coromorant-garamond/CormorantGaramond-Bold.ttf")
+    format("truetype"); /* Safari, Android, iOS */
+}
+
+// Cormorant Garamond Regular
+@font-face {
+  font-family: "Garamond Regular";
+  src: url("inc/fonts/coromorant-garamond/CormorantGaramond-Regular.ttf")
+    format("truetype"); /* Safari, Android, iOS */
+}
+
+$paragraphText: "Garamond Regular", sans-serif;
+$headingText: "Garamond Bold", sans-serif;
+
+/*----------------------------------------*/
+/*  GLOBAL STYLES
+/*----------------------------------------*/
+
+:root {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  font-family: $paragraphText;
+  font-size: 1em;
+}
+
+a {
+  font-family: $paragraphText;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: $headingText;
+  letter-spacing: $letterSpacing;
+}
+
+/*----------------------------------------*/
+/*  GLOBAL CLASSES
+/*----------------------------------------*/
+
+.padding {
+  padding: 4rem 0;
+}
+
+.padding-top {
+  padding: 2rem 0;
+}
+
+/*----------------------------------------*/
+/*  HEADER
+/*----------------------------------------*/
+
+header {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  .container {
+    position: absolute;
+    z-index: 4;
+    max-width: 100%;
+    img {
+      height: 15rem;
+      @media screen and (min-width: $bootstrap-lg) {
+        height: 20rem;
+      }
+    }
+  }
+}
+
+.home {
+  .header {
+    overflow-y: hidden !important;
+    max-height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    .container {
+      position: absolute;
+      z-index: 4;
+    }
+  }
+}
+
+.about {
+  header {
+    height: 120vh;
+    @media screen and (min-width: 374px) {
+      height: 100vh;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 3;
+      width: 100%;
+      height: 120vh;
+      top: 0;
+      left: 0;
+      background: #000000;
+      opacity: 0.5;
+      @media screen and (min-width: 374px) {
+        height: 100vh;
+      }
+    }
+  }
+  p {
+    color: $white;
+    font-size: 1em;
+    &:first-child {
+      font-family: $headingText;
+      font-size: 1.5em;
+      @media screen and (min-width: $bootstrap-md) {
+        font-size: 2em;
+      }
+    }
+    @media screen and (min-width: $bootstrap-md) {
+      font-size: 1.5em;
+    }
+  }
+}
+
+.contact {
+  header {
+    height: 140vh;
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 3;
+      width: 100%;
+      height: 140vh;
+      top: 0;
+      left: 0;
+      background: #000000;
+      opacity: 0.5;
+      @media screen and (min-width: 420px) {
+        height: 100vh;
+      }
+    }
+    @media screen and (min-width: 420px) {
+      height: 100vh;
+    }
+    .container {
+      position: relative;
+      a {
+        color: $black;
+        i {
+          font-size: 32px;
+        }
+        p {
+          color: $black;
+        }
+      }
+      .row {
+        .form-col {
+          padding: 2rem 2rem 0 2rem;
+        }
+        .col-sm-12 {
+          &:last-child {
+            padding-bottom: 2rem;
+          }
+          background: #fff;
+          text-align: center;
+          label,
+          span,
+          input[type="email"],
+          input[type="text"],
+          textarea {
+            width: 100%;
+          }
+          textarea {
+            height: 15vh;
+          }
+          label {
+            color: $black;
+            letter-spacing: $letterSpacing;
+          }
+          p {
+            font-size: 1.3em;
+            margin-bottom: 0.5rem;
+          }
+          input[type="email"],
+          input[type="text"],
+          textarea {
+            border: 1px solid $black;
+            border-style: none none solid none;
+            text-indent: 8px;
+            letter-spacing: $letterSpacing;
+          }
+          input[type="submit"] {
+            background: $black;
+            color: $white;
+            width: 144px;
+            padding: 4px 0;
+            font-size: 1em;
+            border: 1px solid $black;
+            transition: $transition;
+            &:hover {
+              background: transparent;
+              color: $black;
+              border: 1px solid $black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.page {
+  section {
+    height: 100vh;
+  }
+}
+
+.wp-block-gallery {
+  display: none !important;
+}
+
+.logo {
+  height: 5rem !important;
+  @media screen and (min-width: $bootstrap-lg) {
+    height: 5rem !important;
+  }
+}
+
+/*----------------------------------------*/
+/*  HEADER CAROUSEL
+/*----------------------------------------*/
+
+.carousel {
+  height: 70vh;
+  width: 100%;
+  position: static;
+  .carousel-inner {
+    height: 100%;
+    overflow: visible;
+    .carousel-item {
+      height: 100%;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  i {
+    color: $black;
+    font-size: 24px;
+    @media screen and (min-width: $bootstrap-md) {
+      color: $black;
+    }
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    z-index: 5;
+    @media screen and (min-width: $bootstrap-md) {
+      width: auto;
+    }
+  }
+  .carousel-control-prev {
+    @media screen and (min-width: $bootstrap-md) {
+      left: -1rem;
+    }
+    @media screen and (min-width: $bootstrap-lg) {
+      left: -3rem;
+    }
+    @media screen and (min-width: $bootstrap-xl) {
+      left: -5rem;
+    }
+  }
+  .carousel-control-next {
+    @media screen and (min-width: $bootstrap-md) {
+      right: -1rem;
+    }
+    @media screen and (min-width: $bootstrap-lg) {
+      right: -3rem;
+    }
+    @media screen and (min-width: $bootstrap-xl) {
+      right: -5rem;
+    }
+  }
+}
+
+.home {
+  .header-logo {
+    cursor: pointer;
+  }
+  .carousel {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    img {
+      object-fit: cover !important;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: #000000;
+      opacity: 0.3;
+    }
+  }
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition-duration: 0.6s;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+  opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+  transform: translateX(0);
+  transform: translate3d(0, 0, 0);
+}
+
+/*----------------------------------------*/
+/* NAVBAR
+/*----------------------------------------*/
+
+.nav {
+  nav {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 9;
+    overflow: hidden;
+
+    img {
+      height: 5rem;
+      @media screen and (min-width: $bootstrap-md) {
+        height: 8rem;
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      transition: $transition;
+      display: flex;
+      flex-direction: column;
+      li {
+        transform: translateY(50px);
+        opacity: 0;
+        a {
+          display: block;
+          font-size: 1.5em;
+          padding: 10px 0;
+          text-align: center;
+          color: $black;
+          text-decoration: none;
+          &:hover {
+            color: $primaryColor;
+          }
+          @media screen and (min-width: $bootstrap-md) {
+            font-size: 2em;
+          }
+        }
+      }
+    }
+
+    .copyright {
+      position: absolute;
+      bottom: 1rem;
+      @media screen and (min-width: $bootstrap-lg) {
+        bottom: 1.5rem;
+      }
+      p {
+        font-size: 14px;
+        width: 90%;
+        margin: 0 auto;
+        @media screen and (min-width: $bootstrap-sm) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+#header-logo {
+  cursor: pointer;
+}
+
+.toggle-btn {
+  display: none;
+  padding: 12px;
+  position: fixed;
+  z-index: 10;
+  left: 1.5rem;
+  top: 1.5rem;
+  cursor: pointer;
+  z-index: 11;
+  @media screen and (min-width: $bootstrap-md) {
+    left: 3rem;
+    top: 3rem;
+  }
+
+  .bar {
+    width: 34px;
+    height: 3px;
+    margin: 8px auto;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+
+    &:nth-child(2) {
+      width: 24px;
+    }
+  }
+}
+
+.nav-closed {
+  visibility: visible;
+}
+
+#toggle:checked {
+  & ~ nav {
+    opacity: 1;
+    visibility: visible;
+    img {
+      transform: translateY(0px);
+      opacity: 1;
+      transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+    }
+
+    ul {
+      li {
+        transform: translateY(0px);
+        opacity: 1;
+
+        @for $i from 1 through 10 {
+          $t: $i * 0.1;
+          &:nth-child(#{$i}) {
+            transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) #{$t}s;
+          }
+        }
+      }
+    }
+  }
+
+  & + label.toggle-btn {
+    .bar {
+      background-color: $black;
+
+      &:nth-child(2) {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+
+      &:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-12px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.gallery {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 3rem;
+    grid-row-gap: 2.5rem;
+    @media screen and (min-width: $bootstrap-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (min-width: $bootstrap-lg) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 2.5rem;
+      grid-row-gap: 2.5rem;
+    }
+    @media screen and (min-width: $bootstrap-xl) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 3rem;
+      grid-row-gap: 3rem;
+    }
+    .grid-item {
+      a {
+        color: $grey;
+        text-decoration: none;
+      }
+      img {
+        width: 100%;
+        height: 35vh;
+        object-fit: cover;
+        @media screen and (min-width: $bootstrap-md) {
+          height: 14rem;
+        }
+      }
+    }
+  }
+}
